@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { UserDTO, UserUpdateDTO } from '../dto/user.dto';
 import { ErrorManager } from 'src/config/error.manager';
+import { encrypt } from 'src/utils/hash.generate';
 
 @Injectable()
 export class UsersService {
@@ -18,7 +19,14 @@ export class UsersService {
 
   async createUser(body: UserDTO): Promise<User> {
     try {
-      return await this.userRepository.save(body);
+      const { password, ...userData } = body;
+      const passwordHashed = await encrypt(password);
+
+      const user = await this.userRepository.create({
+        ...userData,
+        password: passwordHashed,
+      });
+      return await this.userRepository.save(user);
     } catch (error) {
       if (
         error instanceof QueryFailedError &&
@@ -36,7 +44,7 @@ export class UsersService {
 
   async findUsers(): Promise<User[]> {
     try {
-      const users = await this.userRepository.find();
+      const users: User[] = await this.userRepository.find();
       if (users.length === 0) {
         throw new ErrorManager({
           type: 'NO_CONTENT',
@@ -63,6 +71,14 @@ export class UsersService {
         });
       }
       return userFound;
+    } catch (error) {
+      throw ErrorManager.createSignatureError(error.message);
+    }
+  }
+
+  async findUserByEmail(email: string): Promise<User | undefined> {
+    try {
+      return await this.userRepository.findOneBy({ email });
     } catch (error) {
       throw ErrorManager.createSignatureError(error.message);
     }

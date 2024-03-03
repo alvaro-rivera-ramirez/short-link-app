@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -7,6 +8,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UsersService } from '../services/users.service';
 import { UserDTO, UserUpdateDTO } from '../dto/user.dto';
@@ -16,6 +18,7 @@ import { User } from '../entities/users.entity';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   async findAllUsers(): Promise<User[]> {
     return await this.userService.findUsers();

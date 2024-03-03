@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { BaseEntity } from 'src/config/base.entity';
 import { ROLES } from 'src/constants/roles';
 import { IUser } from 'src/interfaces/user.interface';
@@ -12,6 +13,8 @@ export class User extends BaseEntity implements IUser {
     unique: true,
   })
   email: string;
+
+  @Exclude()
   @Column()
   password: string;
 
