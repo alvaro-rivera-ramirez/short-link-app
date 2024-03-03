@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUUID,
+  IsUrl,
+} from 'class-validator';
 import { User } from 'src/users/entities/users.entity';
 
 export class LinkCreateDTO {
@@ -6,7 +12,10 @@ export class LinkCreateDTO {
   @IsString()
   name: string;
   @IsNotEmpty()
-  @IsString()
+  @IsUrl(
+    { protocols: ['http', 'https'], require_protocol: true },
+    { message: 'Url no válido' },
+  )
   url: string;
 
   @IsNotEmpty()
@@ -26,4 +35,10 @@ export class LinksUpdateDto {
   @IsNotEmpty()
   @IsString()
   url: string;
+}
+
+export class UserLinkDeleteDto {
+  @IsNotEmpty()
+  @IsUUID()
+  user: User;
 }

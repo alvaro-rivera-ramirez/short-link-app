@@ -1,0 +1,22 @@
+<section class="login" id="login">
+  <div class="login-container">
+    <h2 class="login-container-heading">Login</h2>
+    <form class="login-form" [formGroup]="formLogin">
+      <div class="login-form-field">
+        <input type="text" placeholder="Email" formControlName="email">
+        <div [hidden]="email?.valid || email?.pristine" class="error-message">
+          <span *ngIf="email?.errors?.['required']">Email requerido</span>
+          <span *ngIf="email?.errors?.['pattern']">Email incorrecto</span>
+        </div>
+      </div>
+      <div class="login-form-field">
+        <input type="password" placeholder="Password" formControlName="password">
+        <div [hidden]="password?.valid || password?.pristine" class="error-message">
+          <span *ngIf="password?.errors?.['required']">Password requerido</span>
+          <span *ngIf="password?.errors?.['minlength']">El password debe tener 4 caracteres como mínimo.</span>
+        </div>
+      </div>
+    </form>
+    <button class="btn" (click)="login()" [disabled]="formLogin.invalid" >Login</button>
+  </div>
+</section>

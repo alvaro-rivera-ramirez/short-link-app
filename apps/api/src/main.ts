@@ -8,10 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix('api', {
-    exclude: [
-      { path: '', method: RequestMethod.GET },
-      { path: '/:code', method: RequestMethod.GET },
-    ],
+    exclude: [{ path: 'h/:code', method: RequestMethod.ALL }],
   });
 
   app.use(morgan('dev'));

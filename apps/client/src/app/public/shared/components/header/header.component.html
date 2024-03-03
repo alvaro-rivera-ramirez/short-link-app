@@ -1,0 +1,14 @@
+<header id="header">
+  <a routerLink="" class="logo">UrlShort</a>
+  <span class="material-symbols-outlined" id="menu-icon" #menuIcon (click)="toggleMenu()">
+    menu
+    </span>
+    <ul class="navbar" #navbar>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Qr Generator</a></li>
+      <li><a href="#delivery" >Stats</a></li>
+      <li><a href="#delivery" >Links</a></li>
+      <li><a routerLink="login" routerLinkActive="active" class="btn primary">Log in</a></li>
+      <li><a routerLink="register" class="btn secondary">Sign up</a></li>
+    </ul>
+</header>

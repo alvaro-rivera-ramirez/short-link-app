@@ -7,13 +7,13 @@
     "dev":"turbo dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "workspaces": [
-    "apps/*"
-  ],
   "keywords": [],
-  "author": "",
+  "author": "Alvaro Rivera",
   "license": "ISC",
   "devDependencies": {
     "turbo": "^1.12.4"
-  }
+  },
+  "workspaces": [
+    "apps/*"
+  ]
 }

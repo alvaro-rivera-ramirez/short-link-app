@@ -1,0 +1,51 @@
+<section class="generate-link" id="generate-link">
+  <app-heading-section
+    title="Create Short URLs"
+    subtitle="Make your URLs more elegant and easier to share. Sign up for free and get access to advanced tools: QR code generator, link management and link analysis."
+  ></app-heading-section>
+  <a href="" class="btn" [style]="'margin: 0 auto'"> Get Started </a>
+  <div class="generate-link-container">
+    <div class="generate-link-text" [style]="'margin: 0 auto 4px'">
+      <input
+        type="text"
+        id="input-link"
+        placeholder="Enter long link here"
+        [formControl]="url"
+      />
+      <button class="btn_cut" (click)="generateShortUrl()" [disabled]="url.invalid">Shorten</button>
+    </div>
+    <div [hidden]="url.valid || url.pristine" [style]="'margin: 0 auto;max-width: 900px;background-color:#F8D7DA;border-radius:4px;font-size:.9rem;'">
+      <span *ngIf="url.errors?.['pattern']" [style]="'padding:10px 5px;line-height:30px'">Ingrese un url válido</span>
+    </div>
+  </div>
+</section>
+<section class="generated-links" id="generated-links">
+  <div class="generated-links-container">
+    <div class="generated-link-info">
+      <p class="short-link">
+        <a href="https://tinyurl.com/3avmy95e" target="_blank"
+          >https://tinyurl.com/3avmy95e</a
+        >
+      </p>
+      <p class="url">
+        https://sineace-my.sharepoint.com/personal/eperez_sineace_gob_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Feperez%5Fsineace%5Fgob%5Fpe%2FDocuments%2F2023%2F00%20Videos%20Finales%2F008%20Agosto%2F18%2E08%2E23%20Capacitacion%20llenado%20de%20formatos%20%2D%20universidades%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&ga=1
+      </p>
+      <div class="generated-link-info-options">
+        <button>Copy</button>
+      </div>
+    </div>
+    <div class="generated-link-info">
+      <p class="short-link">
+        <a href="https://tinyurl.com/3avmy95e" target="_blank"
+          >https://tinyurl.com/3avmy95e</a
+        >
+      </p>
+      <p class="url">
+        https://sineace-my.sharepoint.com/personal/eperez_sineace_gob_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Feperez%5Fsineace%5Fgob%5Fpe%2FDocuments%2F2023%2F00%20Videos%20Finales%2F008%20Agosto%2F18%2E08%2E23%20Capacitacion%20llenado%20de%20formatos%20%2D%20universidades%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&ga=1
+      </p>
+      <div class="generated-link-info-options">
+        <button>Copy</button>
+      </div>
+    </div>
+  </div>
+</section>

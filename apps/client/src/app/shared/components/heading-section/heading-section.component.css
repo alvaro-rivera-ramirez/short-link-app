@@ -1,0 +1,16 @@
+.heading{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heading span{
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--second-color);
+  text-transform: capitalize;
+}
+
+.heading h1{
+  font-size: 2rem;
+  color: var(--second-color);
+}
