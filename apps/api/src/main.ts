@@ -10,7 +10,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api', {
     exclude: [{ path: 'h/:code', method: RequestMethod.ALL }],
   });
-
+  app.enableCors();
   app.use(morgan('dev'));
   app.useGlobalPipes(
     new ValidationPipe({

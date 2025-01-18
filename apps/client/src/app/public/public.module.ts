@@ -9,8 +9,6 @@ import { ShareModule } from '../shared/share.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -24,6 +22,6 @@ import { LoginComponent } from './pages';
     PublicRoutingModule,
     ShareModule,
     ReactiveFormsModule
-  ]
+  ],
 })
 export class PublicModule { }

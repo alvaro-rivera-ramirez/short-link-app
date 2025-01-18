@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
 #generate-link {
   display: flex;
   flex-direction: column;
@@ -63,10 +65,6 @@
   transition: all ease-in-out .1s;
 }
 
-.generated-links-container{
-
-}
-
 .generated-link-info{
   display: grid;
   gap: 10px;
@@ -84,4 +82,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: .8rem;
+}
+
+.short-link{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
+
+.short-link .btn-copy-short-link{
+  cursor: pointer;
+  font-size: .5rem;
 }
